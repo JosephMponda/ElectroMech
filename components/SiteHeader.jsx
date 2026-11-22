@@ -11,10 +11,13 @@ const links = [
 export function Brand() {
   return (
     <Link href="/" className="brand" aria-label="ElectroMech Solutions home">
-      <span className="brand-mark" aria-hidden="true" />
-      <span>
-        ELECTROMECH<small>Solutions Limited</small>
-      </span>
+      <img
+        className="brand-logo"
+        src="/electromech-logo.jpg"
+        width="286"
+        height="199"
+        alt="ElectroMech Solutions Limited"
+      />
     </Link>
   );
 }

@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
 :root {
-  --ink: #101b27;
-  --ink-2: #1a2b38;
-  --paper: #f5f2eb;
+  --ink: #18336c;
+  --ink-2: #102857;
+  --paper: #f5f7fa;
   --white: #fff;
-  --line: #d7d7d0;
-  --muted: #5b6770;
-  --amber: #ffb000;
-  --amber-deep: #b97600;
+  --line: #d9e1ec;
+  --muted: #5f7498;
+  --brand-blue: #3368c6;
+  --brand-navy: #18336c;
+  --brand-slate: #788aaf;
+  --brand-cyan: #00a3e4;
   --focus: #1269c8;
   --max: 76rem;
 }
@@ -60,7 +62,7 @@ button {
   top: -5rem;
   left: 1rem;
   padding: 0.8rem 1rem;
-  background: var(--amber);
+  background: var(--brand-blue);
   font-weight: 800;
 }
 .skip-link:focus {
@@ -75,7 +77,7 @@ button {
 }
 .eyebrow {
   margin: 0 0 0.8rem;
-  color: var(--amber-deep);
+  color: var(--brand-navy);
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -84,7 +86,7 @@ button {
 }
 .on-dark .eyebrow,
 .dark-section .eyebrow {
-  color: var(--amber);
+  color: var(--brand-cyan);
 }
 h1,
 h2,
@@ -127,8 +129,8 @@ p {
   padding: 0.75rem 1.05rem;
   border: 1px solid transparent;
   border-radius: 3px;
-  background: var(--amber);
-  color: var(--ink);
+  background: var(--brand-blue);
+  color: var(--white);
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -137,7 +139,7 @@ p {
     0.2s background;
 }
 .button:hover {
-  background: #ffc23f;
+  background: #4b7bd0;
   transform: translateY(-2px);
 }
 .button--ghost {
@@ -182,7 +184,7 @@ p {
   z-index: 30;
   top: 0;
   border-bottom: 1px solid #31414d;
-  background: rgba(16, 27, 39, 0.96);
+  background: rgba(24, 51, 108, 0.96);
   backdrop-filter: blur(10px);
 }
 .header-inner {
@@ -193,39 +195,15 @@ p {
   gap: 0.8rem;
 }
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  color: var(--white);
-  font:
-    700 0.96rem/1 "Space Grotesk",
-    sans-serif;
-  letter-spacing: -0.04em;
+  max-width: 5.6rem;
+  background: var(--white);
 }
-.brand-mark {
-  position: relative;
-  width: 1.7rem;
-  height: 1.7rem;
-  border: 2px solid var(--amber);
-}
-.brand-mark:after {
-  position: absolute;
-  top: -0.15rem;
-  right: -0.15rem;
-  width: 0.75rem;
-  height: 0.75rem;
-  background: var(--amber);
-  content: "";
-}
-.brand small {
+.brand-logo {
   display: block;
-  margin-top: 0.13rem;
-  color: #a8b5be;
-  font:
-    700 0.47rem/1 Manrope,
-    sans-serif;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  width: 100%;
+  height: auto;
 }
 .nav-toggle {
   display: grid;
@@ -330,7 +308,7 @@ p {
 }
 .credibility-strip .container div:before {
   margin-right: 0.55rem;
-  color: var(--amber);
+  color: var(--brand-blue);
   content: "—";
 }
 .page-hero {
@@ -357,7 +335,7 @@ p {
   color: var(--white);
 }
 .signal strong {
-  color: var(--amber);
+  color: var(--brand-blue);
   font:
     700 1.1rem "Space Grotesk",
     sans-serif;
@@ -394,7 +372,7 @@ p {
   color: #cbd3d8;
 }
 .service-index {
-  color: var(--amber-deep);
+  color: var(--brand-navy);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -419,7 +397,7 @@ p {
   background: var(--white);
 }
 .process-grid span {
-  color: var(--amber-deep);
+  color: var(--brand-navy);
   font-weight: 800;
 }
 .process-grid h3 {
@@ -445,7 +423,7 @@ p {
 }
 .placeholder-project span {
   margin-bottom: auto;
-  color: var(--amber);
+  color: var(--brand-blue);
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -475,7 +453,7 @@ p {
 }
 .insight-card {
   padding: 1.35rem;
-  border-top: 3px solid var(--amber);
+  border-top: 3px solid var(--brand-blue);
   background: var(--white);
   box-shadow: 0 8px 25px rgba(16, 27, 39, 0.05);
 }
@@ -487,7 +465,7 @@ p {
   font-size: 0.88rem;
 }
 .cta-band {
-  background: var(--amber);
+  background: var(--brand-blue);
 }
 .cta-band .button {
   background: var(--ink);
@@ -498,7 +476,7 @@ p {
 }
 .value {
   padding: 1.35rem;
-  border-left: 4px solid var(--amber);
+  border-left: 4px solid var(--brand-blue);
   background: var(--white);
   color: var(--ink);
 }
@@ -512,7 +490,7 @@ p {
   color: var(--white);
 }
 .team-card .role {
-  color: var(--amber);
+  color: var(--brand-blue);
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -542,7 +520,7 @@ p {
 .scope-list li:before {
   position: absolute;
   left: 1rem;
-  color: var(--amber-deep);
+  color: var(--brand-navy);
   content: "→";
 }
 .deliverable-panel {
@@ -566,7 +544,7 @@ p {
 }
 .deliverable-panel li:before {
   margin-right: 0.55rem;
-  color: var(--amber);
+  color: var(--brand-blue);
   content: "—";
 }
 .related-services {
@@ -605,13 +583,13 @@ p {
 .contact-list strong {
   display: block;
   margin-bottom: 0.3rem;
-  color: var(--amber);
+  color: var(--brand-blue);
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .contact-list a:hover {
-  color: var(--amber);
+  color: var(--brand-blue);
 }
 .form-panel {
   background: var(--white);
@@ -657,7 +635,7 @@ p {
 .notice {
   margin-top: 1rem;
   padding: 0.9rem;
-  border-left: 3px solid var(--amber);
+  border-left: 3px solid var(--brand-blue);
   background: #fff6dc;
   color: #5b4400;
   font-size: 0.82rem;
@@ -698,7 +676,7 @@ p {
 }
 .footer-title {
   margin: 0 0 0.7rem;
-  color: var(--amber);
+  color: var(--brand-blue);
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -717,7 +695,7 @@ p {
   font-size: 0.84rem;
 }
 .footer-links a:hover {
-  color: var(--amber);
+  color: var(--brand-blue);
 }
 .footer-bottom {
   display: flex;
