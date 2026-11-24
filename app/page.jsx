@@ -3,14 +3,23 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { insights, profileUrl, services } from "@/lib/site-data";
+
+const featuredOrganisations = [
+  { name: "NOCMA", image: "/images/organisations/nocma.webp" },
+  { name: "NBS Bank", image: "/images/organisations/nbs-bank.webp" },
+  { name: "Press Trust", image: "/images/organisations/press-trust.webp" },
+  { name: "Expert", image: "/images/organisations/expert.webp" },
+  { name: "Protea Hotels", image: "/images/organisations/protea-hotels.webp" },
+];
+
 export default function Home() {
   return (
     <>
       <section className="hero on-dark">
         <Image
           className="hero-image"
-          src="https://images.unsplash.com/photo-1681495628907-592089c3a546?auto=format&fit=crop&w=1800&q=75"
-          alt="High-voltage substation equipment and electrical infrastructure"
+          src="/images/profile/power-line-hero.webp"
+          alt="Electricity transmission tower pictured in ElectroMech's company profile"
           fill
           priority
           sizes="100vw"
@@ -146,14 +155,20 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <SectionHeading
-            eyebrow="Trusted relationships"
-            title="Client logos will be published with permission."
+            eyebrow="Selected experience"
+            title="Organisations featured in our company profile."
           />
-          <div className="client-logos">
-            {Array.from({ length: 4 }, (_, index) => (
-              <div className="client-logo" key={index}>
-                [CLIENT LOGO]
-              </div>
+          <div className="client-logos" role="list">
+            {featuredOrganisations.map((organisation) => (
+              <article className="client-logo" key={organisation.name} role="listitem">
+                <Image
+                  src={organisation.image}
+                  alt={`${organisation.name} logo`}
+                  width={480}
+                  height={180}
+                  sizes="(min-width: 42rem) 20vw, 50vw"
+                />
+              </article>
             ))}
           </div>
         </div>

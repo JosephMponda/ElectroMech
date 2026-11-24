@@ -21,6 +21,14 @@
 - Live CSS palette references: primary blue `#3368C6`, deep navy `#18336C`, slate `#788AAF`. The uploaded logo also contains cyan `#00A3E4` and dark blue `#0043AB`. Brand tokens are in `app/globals.css`.
 - Retain the real logo image; do not recreate or replace it with a generic engineering mark.
 
+## Company Profile Imagery
+
+- The source profile is `https://electromechmw.com/wp-content/uploads/2025/08/Electromech-Company-Profile-2026.pdf` (pages 4–6 in the downloaded PDF).
+- Locally derived, compressed WebP assets live in `public/images/profile/`: `power-line-hero.webp`, `electrical-technician.webp`, and one image for each of the four services. Together they are approximately 340 KB.
+- Home uses the power-line image; About uses the electrical-technician image; `ServiceCard` and every service detail page use the matching service image configured in `lib/site-data.js`.
+- Describe these as images from the company profile. Do not present them as a specific ElectroMech project, site, employee, or client engagement unless the company confirms that context.
+- Keep the local files and their descriptive alt text. Do not restore the former external Unsplash image.
+
 ## Content & Claims
 
 - Use only verified company facts: services are Design & Development, Project Management, Asset Management, and Advisory.

@@ -351,16 +351,26 @@ p {
 }
 .service-card {
   display: flex;
-  min-height: 16rem;
+  min-height: 0;
   flex-direction: column;
+  overflow: hidden;
   padding: 1.4rem;
   border: 1px solid var(--line);
   border-radius: 0.7rem;
   background: var(--white);
+  color: var(--ink);
   transition:
     0.2s transform,
     0.2s background,
     0.2s color;
+}
+.service-card-image {
+  max-width: none;
+  width: calc(100% + 2.8rem);
+  height: 8.4rem;
+  margin: -1.4rem -1.4rem 1.15rem;
+  border-radius: 0.7rem 0.7rem 0 0;
+  object-fit: cover;
 }
 .service-card:hover {
   transform: translateY(-4px);
@@ -371,6 +381,14 @@ p {
 .service-card:hover p {
   color: #cbd3d8;
 }
+.service-card:hover .service-index,
+.service-card:hover .text-link {
+  color: var(--brand-cyan);
+}
+.service-card:focus-within {
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(51, 104, 198, 0.25);
+}
 .service-index {
   color: var(--brand-navy);
   font-size: 0.72rem;
@@ -378,7 +396,7 @@ p {
   letter-spacing: 0.12em;
 }
 .service-card h3 {
-  margin: 1.8rem 0 0.7rem;
+  margin: 0.75rem 0 0.7rem;
 }
 .service-card p {
   color: var(--muted);
@@ -442,14 +460,20 @@ p {
 }
 .client-logo {
   display: grid;
-  min-height: 5.2rem;
+  min-height: 6.5rem;
   place-items: center;
-  border: 1px dashed #aeb5b7;
-  color: #667078;
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-align: center;
+  overflow: hidden;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: var(--white);
+}
+.client-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 4.5rem;
+  object-fit: contain;
 }
 .insight-card {
   padding: 1.35rem;
@@ -522,6 +546,16 @@ p {
   left: 1rem;
   color: var(--brand-navy);
   content: "→";
+}
+.service-image-frame {
+  overflow: hidden;
+  border-radius: 0.9rem;
+  background: var(--ink);
+}
+.service-detail-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .deliverable-panel {
   padding: 1.5rem;
@@ -752,7 +786,7 @@ p {
     grid-template-columns: repeat(3, 1fr);
   }
   .client-logos {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
   .values {
     grid-template-columns: repeat(3, 1fr);
@@ -797,8 +831,14 @@ p {
     gap: 5rem;
   }
   .service-intro {
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
+  }
+  .service-image-frame {
+    grid-row: span 2;
+  }
+  .service-deliverables {
+    grid-column: 2;
   }
   .services-grid,
   .process-grid,

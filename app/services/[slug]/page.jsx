@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { services, serviceBySlug } from "@/lib/site-data";
@@ -27,6 +28,16 @@ export default async function ServicePage({ params }) {
       </section>
       <section className="section">
         <div className="container service-intro">
+          <div className="service-image-frame">
+            <Image
+              className="service-detail-image"
+              src={service.image}
+              alt={service.imageAlt}
+              width="800"
+              height="560"
+              sizes="(max-width: 700px) 100vw, 50vw"
+            />
+          </div>
           <div>
             <p className="eyebrow">Scope</p>
             <h2>Purposeful engineering input, matched to your situation.</h2>
@@ -36,7 +47,7 @@ export default async function ServicePage({ params }) {
               ))}
             </ul>
           </div>
-          <aside className="deliverable-panel">
+          <aside className="deliverable-panel service-deliverables">
             <p className="eyebrow">Typical deliverables</p>
             <h2>Clear outputs to move the work forward.</h2>
             <ul>
