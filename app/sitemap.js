@@ -9,14 +9,13 @@ export default function sitemap() {
     "/services/project-management/",
     "/services/asset-management/",
     "/services/advisory/",
-    "/projects/",
-    "/insights/",
     "/contact/",
+    "/privacy/",
   ];
   return routes.map((route) => ({
     url: "https://electromechmw.com" + route,
     lastModified: new Date(),
     changeFrequency: "monthly",
-    priority: route === "" ? 1 : 0.8,
+    priority: route === "" ? 1 : route === "/privacy/" ? 0.3 : 0.8,
   }));
 }

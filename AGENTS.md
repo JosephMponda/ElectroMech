@@ -12,7 +12,7 @@
 - `lib/site-data.js` is the single source for services, generated service-page content, company-profile URL, and starter insight cards. Edit it before duplicating service copy across pages.
 - `app/services/[slug]/page.jsx` statically generates every service route from that data.
 - `next.config.mjs` uses `output: 'export'`; do not introduce server-only features, image optimisation, API routes, or middleware without changing the deployment model.
-- The contact form intentionally validates and displays a client-side confirmation only. Connect a chosen form provider, email workflow, CRM, or serverless endpoint before launch.
+- The contact form posts to `NEXT_PUBLIC_FORM_ENDPOINT` when set, otherwise opens WhatsApp with the enquiry prefilled.
 
 ## Verified Brand Evidence
 
@@ -32,7 +32,7 @@
 ## Content & Claims
 
 - Use only verified company facts: services are Design & Development, Project Management, Asset Management, and Advisory.
-- Keep explicit placeholders such as `[ADD PROJECT]`, `[CLIENT LOGO]`, and `[ADD APPROVED ...]` until the company supplies approval. Never invent clients, project outcomes, certifications, testimonials, awards, or metrics.
+- Do not show placeholder text to visitors; hide sections until the company supplies approved content. Never invent clients, project outcomes, certifications, testimonials, awards, or metrics.
 - Keep the email discrepancy visible until resolved: the legacy site shows `admin@electromech.com`; supplied current information uses `admin@electromechmw.com`.
 - The current stock engineering photography is not an ElectroMech project. Replace it with rights-cleared, compressed project photography and accurate alt text when available.
 

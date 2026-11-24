@@ -14,13 +14,14 @@ A fast, static-export Next.js website for ElectroMech Solutions Limited. Content
 - **Static hosting:** upload everything inside `out/` to the web root after `npm run build`.
 - **Netlify / Cloudflare Pages:** set build command to `npm run build`; publish directory is `out`.
 - **Domain:** point `electromechmw.com` to the chosen host, then change the URL in `app/layout.jsx`, `app/sitemap.js` and `public/robots.txt` if the final canonical domain differs.
-- **Form:** this static demo validates the form and shows a success state but does not send submissions. Connect it to a chosen provider (for example Netlify Forms, Formspree, Resend via a serverless route, or the organisation’s CRM) before launch.
+- **Form:** set `NEXT_PUBLIC_FORM_ENDPOINT` (see `.env.example`) to a Formspree or Web3Forms endpoint so quote requests arrive by email. If it is not set, the form hands the enquiry to WhatsApp (+265 999 858 218), so no lead is lost.
 
 ## Editorial handover
 
 - Edit services and the three initial insight summaries in `lib/site-data.js`.
 - The service detail pages are generated automatically from those records.
-- Replace the stock image URL in `app/page.jsx` and `app/about/page.jsx` with optimised, rights-cleared project photography. The current image is an Unsplash stock reference, not an ElectroMech project.
+- Replace the company-profile images with rights-cleared project photography when available. `showClientLogos` in `lib/site-data.js` hides the client-logo strip until each organisation approves it.
+- Projects and Insights pages are hidden from navigation, the sitemap and search (noindex) until real case studies and articles exist.
 - Use a CMS such as Sanity, Contentful or a headless WordPress only when the team needs browser-based authoring; the current structure is ready to map those records into page components.
 
 ## Required from the client before launch
@@ -32,3 +33,6 @@ A fast, static-export Next.js website for ElectroMech Solutions Limited. Content
 5. Confirmed certifications, registrations and accreditations, if any.
 6. Approved team bios, headshots and the correct public email address. The legacy site conflicts: it shows `admin@electromech.com` while current supplied details use `admin@electromechmw.com`.
 7. A form-delivery provider/account and a privacy policy if personal data will be collected.
+
+8. A vector (SVG) or high-resolution transparent logo. The supplied JPG is small; the header uses a white badge to cope.
+9. Confirmation of the public email address (the legacy site showed admin@electromech.com; this build uses admin@electromechmw.com) and a review of `/privacy/`.

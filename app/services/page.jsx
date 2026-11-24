@@ -11,7 +11,6 @@ export default function Services() {
     <>
       <section className="page-hero">
         <div className="container">
-          <p className="eyebrow">Our services</p>
           <h1>Engineering excellence through focused, dependable services.</h1>
           <p className="lead">
             From planning to delivery, our consultancy services bring together
@@ -21,10 +20,7 @@ export default function Services() {
       </section>
       <section className="section">
         <div className="container">
-          <SectionHeading
-            eyebrow="Capabilities"
-            title="The right level of technical support for the job."
-          />
+          <SectionHeading title="The right level of technical support for the job." />
           <div className="services-grid">
             {services.map((service) => (
               <ServiceCard key={service.slug} service={service} />

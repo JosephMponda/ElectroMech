@@ -1,40 +1,25 @@
-import { SectionHeading } from "@/components/SectionHeading";
-import { insights } from "@/lib/site-data";
+import Link from "next/link";
+
 export const metadata = {
   title: "Insights",
-  description: "Engineering perspectives from ElectroMech Solutions Limited.",
+  description: "Engineering insights from ElectroMech Solutions Limited.",
+  robots: { index: false, follow: true },
 };
+
 export default function Insights() {
   return (
     <>
       <section className="page-hero">
         <div className="container">
-          <p className="eyebrow">Insights</p>
-          <h1>Perspectives on the systems behind productive industry.</h1>
+          <h1>Insights are on the way.</h1>
           <p className="lead">
-            A concise editorial space for electrical and mechanical engineering
-            knowledge. Stale template dates and unmoderated comments are
-            intentionally removed.
+            We are preparing practical articles on electrical and mechanical engineering. In the
+            meantime, our team is happy to answer your questions directly.
           </p>
-        </div>
-      </section>
-      <section className="section">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Latest perspectives"
-            title="Engineering topics worth a closer look."
-          />
-          <div className="insight-grid">
-            {insights.map((insight) => (
-              <article className="insight-card" key={insight.title}>
-                <p className="eyebrow">Engineering insight</p>
-                <h3>{insight.title}</h3>
-                <p>{insight.excerpt}</p>
-                <p className="notice">
-                  [ADD APPROVED FULL ARTICLE OR CMS POST]
-                </p>
-              </article>
-            ))}
+          <div className="hero-actions">
+            <Link className="button" href="/contact/">
+              Ask the team
+            </Link>
           </div>
         </div>
       </section>

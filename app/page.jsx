@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
-import { insights, profileUrl, services } from "@/lib/site-data";
+import { faqs, profileUrl, reasons, services, showClientLogos } from "@/lib/site-data";
 
 const featuredOrganisations = [
   { name: "NOCMA", image: "/images/organisations/nocma.webp" },
@@ -10,6 +10,13 @@ const featuredOrganisations = [
   { name: "Press Trust", image: "/images/organisations/press-trust.webp" },
   { name: "Expert", image: "/images/organisations/expert.webp" },
   { name: "Protea Hotels", image: "/images/organisations/protea-hotels.webp" },
+];
+
+const steps = [
+  ["Understand", "We clarify the site, systems, objective and constraints."],
+  ["Define", "We agree a focused technical scope and a practical way forward."],
+  ["Deliver", "We coordinate the technical work with attention to quality and progress."],
+  ["Hand over", "You receive clear documentation and useful next steps for operation."],
 ];
 
 export default function Home() {
@@ -25,11 +32,10 @@ export default function Home() {
           sizes="100vw"
         />
         <div className="container hero-copy">
-          <p className="eyebrow">Mechanical + electrical consultancy</p>
-          <h1>Engineering decisions that keep industry moving.</h1>
+          <h1>Electrical and mechanical engineering that keeps industry running.</h1>
           <p className="lead">
-            ElectroMech Solutions Limited provides practical mechanical and
-            electrical engineering services for industry in Malawi.
+            ElectroMech Solutions is a consulting firm in Lilongwe. We design, manage, assess and
+            advise on the systems your operation depends on.
           </p>
           <div className="hero-actions">
             <Link className="button" href="/contact/">
@@ -48,42 +54,32 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section className="section">
         <div className="container split">
-          <div>
-            <SectionHeading
-              eyebrow="What we do"
-              title="A clear technical partner from concept to operation."
-              lead="We bring engineering thinking to the work that matters: defining the problem, shaping a practical solution and supporting informed delivery."
-            />
-            <Link className="text-link" href="/about/">
-              About ElectroMech
-            </Link>
-          </div>
+          <SectionHeading
+            title="One consultancy from first concept to day-to-day operation."
+            lead="We bring engineering judgement to the work that matters: defining the problem, shaping a practical solution and supporting informed delivery."
+          />
           <div className="signal">
             <strong>Our mission</strong>
             <p>
-              Specifically-designed, practical, innovative, cost-effective
-              engineering solutions and unmatched customer service.
+              Specifically designed, practical, innovative and cost-effective engineering solutions,
+              with unmatched customer service.
             </p>
-            <a
-              className="button"
-              href={profileUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a className="button" href={profileUrl} target="_blank" rel="noreferrer">
               Download company profile
             </a>
           </div>
         </div>
       </section>
+
       <section className="section dark-section">
         <div className="container">
           <SectionHeading
             dark
-            eyebrow="Capabilities"
-            title="Engineering consultancy, built around the real task."
-            lead="Four focused services, coordinated around your requirements."
+            title="Four services, coordinated around your requirement."
+            lead="Use one, or combine them across the life of a project or asset."
           />
           <div className="services-grid">
             {services.map((service) => (
@@ -92,113 +88,74 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section className="section">
         <div className="container">
-          <SectionHeading
-            eyebrow="How we work"
-            title="Deliberate in approach. Practical in delivery."
-          />
-          <div className="process-grid">
-            <article>
-              <span>01</span>
-              <h3>Understand</h3>
-              <p>Clarify the site, systems, objective and constraints.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Define</h3>
-              <p>
-                Build a focused technical scope and a practical way forward.
-              </p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Deliver</h3>
-              <p>
-                Coordinate technical work with attention to quality and
-                progress.
-              </p>
-            </article>
-            <article>
-              <span>04</span>
-              <h3>Support</h3>
-              <p>
-                Leave clear documentation and useful next steps for operation.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-      <section className="section project-section">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Selected work"
-            title="Projects deserve evidence, not invented claims."
-            lead="Client-approved case studies will be added here. Until then, this site makes the gap clear."
-          />
-          <div className="project-grid">
-            {["[ADD PROJECT]", "[ADD PROJECT]", "[ADD PROJECT]"].map(
-              (project, index) => (
-                <article className="placeholder-project" key={index}>
-                  <span>Case study pending</span>
-                  <h3>{project}</h3>
-                  <p>Add client-approved scope, location, role and outcome.</p>
-                </article>
-              ),
-            )}
-          </div>
-          <Link className="text-link" href="/projects/">
-            View project placeholders
-          </Link>
-        </div>
-      </section>
-      <section className="section">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Selected experience"
-            title="Organisations featured in our company profile."
-          />
-          <div className="client-logos" role="list">
-            {featuredOrganisations.map((organisation) => (
-              <article className="client-logo" key={organisation.name} role="listitem">
-                <Image
-                  src={organisation.image}
-                  alt={`${organisation.name} logo`}
-                  width={480}
-                  height={180}
-                  sizes="(min-width: 42rem) 20vw, 50vw"
-                />
+          <SectionHeading title="Why clients work with ElectroMech." />
+          <div className="reasons">
+            {reasons.map((reason) => (
+              <article key={reason.title}>
+                <h3>{reason.title}</h3>
+                <p>{reason.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
-      <section className="section">
+
+      <section className="section section--tint">
         <div className="container">
-          <SectionHeading
-            eyebrow="Insights"
-            title="Useful perspectives for better engineering decisions."
-          />
-          <div className="insight-grid">
-            {insights.map((insight) => (
-              <article className="insight-card" key={insight.title}>
-                <p className="eyebrow">Engineering insight</p>
-                <h3>{insight.title}</h3>
-                <p>{insight.excerpt}</p>
-                <Link className="text-link" href="/insights/">
-                  Read insight
-                </Link>
-              </article>
+          <SectionHeading title="How an engagement runs." />
+          <ol className="process-grid">
+            {steps.map(([title, text], index) => (
+              <li key={title}>
+                <span aria-hidden="true">{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {showClientLogos && (
+        <section className="section">
+          <div className="container">
+            <SectionHeading title="Organisations in our company profile." />
+            <ul className="client-logos">
+              {featuredOrganisations.map((organisation) => (
+                <li className="client-logo" key={organisation.name}>
+                  <Image
+                    src={organisation.image}
+                    alt={`${organisation.name} logo`}
+                    width={480}
+                    height={180}
+                    sizes="(min-width: 42rem) 20vw, 50vw"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      <section className="section section--tint">
+        <div className="container faq-layout">
+          <SectionHeading title="Common questions." />
+          <div className="faq">
+            {faqs.map((item) => (
+              <details key={item.q}>
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
             ))}
           </div>
         </div>
       </section>
+
       <section className="section cta-band">
         <div className="container split">
-          <div>
-            <p className="eyebrow">Start with the scope</p>
-            <h2>Need a mechanical or electrical engineering partner?</h2>
-          </div>
+          <h2>Need a mechanical or electrical engineering partner?</h2>
           <div>
             <Link className="button" href="/contact/">
               Request a quote

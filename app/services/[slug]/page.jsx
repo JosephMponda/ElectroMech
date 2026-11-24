@@ -21,7 +21,6 @@ export default async function ServicePage({ params }) {
     <>
       <section className="page-hero">
         <div className="container">
-          <p className="eyebrow">Service {service.number}</p>
           <h1>{service.title}</h1>
           <p className="lead">{service.summary}</p>
         </div>
@@ -39,8 +38,7 @@ export default async function ServicePage({ params }) {
             />
           </div>
           <div>
-            <p className="eyebrow">Scope</p>
-            <h2>Purposeful engineering input, matched to your situation.</h2>
+            <h2>What the service covers</h2>
             <ul className="scope-list">
               {service.scope.map((item) => (
                 <li key={item}>{item}</li>
@@ -48,14 +46,13 @@ export default async function ServicePage({ params }) {
             </ul>
           </div>
           <aside className="deliverable-panel service-deliverables">
-            <p className="eyebrow">Typical deliverables</p>
-            <h2>Clear outputs to move the work forward.</h2>
+            <h2>Typical deliverables</h2>
             <ul>
               {service.deliverables.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <Link className="button" href="/contact/">
+            <Link className="button" href={"/contact/?service=" + service.slug}>
               Request a quote
             </Link>
           </aside>
@@ -63,8 +60,7 @@ export default async function ServicePage({ params }) {
       </section>
       <section className="section dark-section">
         <div className="container">
-          <p className="eyebrow">Need another capability?</p>
-          <h2 className="on-dark">Explore the wider consultancy offer.</h2>
+          <h2 className="on-dark">Other services</h2>
           <div className="related-services">
             {services
               .filter((item) => item.slug !== service.slug)

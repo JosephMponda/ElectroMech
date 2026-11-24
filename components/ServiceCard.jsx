@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+
 export function ServiceCard({ service }) {
+  const href = "/services/" + service.slug + "/";
   return (
     <article className="service-card">
       <Image
@@ -11,11 +13,10 @@ export function ServiceCard({ service }) {
         height="560"
         sizes="(max-width: 700px) 100vw, (max-width: 960px) 50vw, 25vw"
       />
-      <span className="service-index">{service.number}</span>
       <h3>{service.title}</h3>
       <p>{service.summary}</p>
-      <Link className="text-link" href={"/services/" + service.slug + "/"}>
-        Explore service
+      <Link className="text-link" href={href}>
+        Explore {service.title}
       </Link>
     </article>
   );

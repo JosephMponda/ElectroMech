@@ -1,26 +1,27 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+
 const links = [
   ["About", "/about/"],
   ["Services", "/services/"],
-  ["Projects", "/projects/"],
-  ["Insights", "/insights/"],
   ["Contact", "/contact/"],
 ];
+
 export function Brand() {
   return (
     <Link href="/" className="brand" aria-label="ElectroMech Solutions home">
       <img
         className="brand-logo"
         src="/electromech-logo.jpg"
-        width="286"
-        height="199"
+        width="249"
+        height="169"
         alt="ElectroMech Solutions Limited"
       />
     </Link>
   );
 }
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
@@ -33,9 +34,9 @@ export function SiteHeader() {
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-controls="primary-navigation"
+          aria-label={open ? "Close menu" : "Open menu"}
         >
           <span />
-          <i className="sr-only">Menu</i>
         </button>
         <nav
           id="primary-navigation"
@@ -47,7 +48,11 @@ export function SiteHeader() {
               {label}
             </Link>
           ))}
-          <Link className="button button--small mobile-quote" href="/contact/">
+          <Link
+            className="button button--small mobile-quote"
+            href="/contact/"
+            onClick={() => setOpen(false)}
+          >
             Request a quote
           </Link>
         </nav>

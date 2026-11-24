@@ -1,4 +1,6 @@
 import { ContactForm } from "@/components/ContactForm";
+import { MapEmbed } from "@/components/MapEmbed";
+import { whatsappLink } from "@/lib/site-data";
 export const metadata = {
   title: "Contact",
   description:
@@ -9,7 +11,6 @@ export default function Contact() {
     <>
       <section className="page-hero">
         <div className="container">
-          <p className="eyebrow">Contact</p>
           <h1>Bring us the engineering question.</h1>
           <p className="lead">
             Tell us what needs to be designed, managed, assessed or clarified.
@@ -20,7 +21,6 @@ export default function Contact() {
       <section className="section">
         <div className="container contact-layout">
           <aside className="contact-panel">
-            <p className="eyebrow">Find us</p>
             <h2>ElectroMech Solutions Limited</h2>
             <ul className="contact-list">
               <li>
@@ -47,21 +47,14 @@ export default function Contact() {
                 <strong>Hours</strong>Mon–Fri, 9:30–16:30
               </li>
             </ul>
-            <p className="notice">
-              The older website also displays{" "}
-              <strong>admin@electromech.com</strong>. Confirm the preferred
-              public address before launch.
-            </p>
+            <a className="button button--whatsapp" href={whatsappLink()} target="_blank" rel="noreferrer">
+              Chat on WhatsApp
+            </a>
           </aside>
           <ContactForm />
         </div>
-        <div className="container map-wrap">
-          <iframe
-            title="ElectroMech Solutions location in Kawale, Lilongwe"
-            src="https://www.google.com/maps?q=Guoji%20Shopping%20Complex%20Area%2049%20Lilongwe%20Malawi&output=embed"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+        <div className="container">
+          <MapEmbed />
         </div>
       </section>
     </>
